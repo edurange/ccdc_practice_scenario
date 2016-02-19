@@ -1,0 +1,9 @@
+script "motd_web_server" do
+  interpreter "bash"
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+  cd /tmp
+  wget https://raw.githubusercontent.com/edurange/ccdc_practice_scenario/master/motd/motd_web_server -O /etc/motd
+  EOH
+end
