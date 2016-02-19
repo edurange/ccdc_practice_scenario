@@ -1,0 +1,18 @@
+script "get_tesspax_server" do
+  interpreter "bash"
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+  cd /tmp
+  touch get_memes-done
+  mkdir /home/elon/memes
+  cd /home/elon/memes
+  wget https://raw.githubusercontent.com/edurange/ccdc_practice_scenario/master/memes/elon_meme_1.jpg ./
+  wget https://raw.githubusercontent.com/edurange/ccdc_practice_scenario/master/memes/elon_meme_2.jpg ./
+  wget https://raw.githubusercontent.com/edurange/ccdc_practice_scenario/master/memes/elon_meme_3.jpg ./
+  wget https://raw.githubusercontent.com/edurange/ccdc_practice_scenario/master/memes/spacex_meme_1.jpg ./
+  wget https://raw.githubusercontent.com/edurange/ccdc_practice_scenario/master/memes/spacex_meme_2.jpg ./
+  wget https://raw.githubusercontent.com/edurange/ccdc_practice_scenario/master/memes/spacex_meme_3.jpg ./
+  EOH
+  not_if "test -e /tmp/get_memes-done"
+end

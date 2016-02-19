@@ -1,0 +1,28 @@
+You are part of an IT team tasked with securing a number of ubuntu servers. The previous IT team had very poor security... They failed to set up any firewalls and they had horrible default passwords.
+
+Your servers can be found at... 
+
+10.0.12.21
+10.0.2.94
+10.0.46.69
+10.0.35.11
+10.0.36.67
+
+as well as five other machines on the subnet 10.0.0.0/17 whose IPs your boss has lost.
+
+The usernames you've been given are:
+blah
+void
+caprica
+libre
+figure_six
+pizza_9
+green_5
+
+and they all have the same default passwords, which your instructor will provide to you.
+
+Your tasks are simple:
+1. Change the default passwords, consider whether all users should have administrative privileges
+2. Set up firewall rulesets for all machines, that only allow connections to the services running (such as a web sever or DNS server), as well as ssh (careful not to lock yourselves out)
+3. Find the missing machines and do the same.
+4. Coordinate with your other team members so you don't step on. This will involve figuring how who else is playing, and how to communicate passwords and such.
