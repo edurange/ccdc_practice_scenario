@@ -1,11 +1,14 @@
-script "get_tesspax_server" do
+script "configure_homedir_server" do
   interpreter "bash"
   user "root"
   cwd "/tmp"
   code <<-EOH
   cd /tmp
   touch config_homedir-done
-  
+  a2enmod userdir
+  sed -i s/"\/home\/\*\/public_html"/"\/home\/\*\/"/g /etc/apache2/mods-enabled/userdir.conf
+  sed -i s/"UserDir public_html"/"UserDir .\/"/g /etc/apache2/mods-enabled/userdir.conf
+  service apache2 restart 
   EOH
   not_if "test -e /tmp/config_homedir-done"
 end
