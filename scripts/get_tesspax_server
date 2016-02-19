@@ -1,0 +1,11 @@
+script "get_tesspax_server" do
+  interpreter "bash"
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+  cd /tmp
+  touch get_html-done
+  wget https://github.com/edurange/ccdc_practice_scenario/raw/master/tesspax.html -O /var/www/html/index.html
+  EOH
+  not_if "test -e /tmp/get_html-done"
+end

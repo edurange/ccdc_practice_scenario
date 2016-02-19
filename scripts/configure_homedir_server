@@ -1,0 +1,11 @@
+script "get_tesspax_server" do
+  interpreter "bash"
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+  cd /tmp
+  touch config_homedir-done
+  
+  EOH
+  not_if "test -e /tmp/config_homedir-done"
+end

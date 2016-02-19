@@ -1,0 +1,12 @@
+script "add_remove_firewall" do
+  interpreter "bash"
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+  cd /tmp
+  touch get_remove-done
+  wget https://raw.githubusercontent.com/edurange/scenario-total-recon/master/allow_all.sh -O /root/remove_firewall.sh
+  chmod +x /root/remove_firewall.sh
+  EOH
+  not_if "test -e /tmp/get_remove-done"
+end
